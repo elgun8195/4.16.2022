@@ -19,36 +19,65 @@ namespace ikinci_task_praktika.Models
                 }
             }
         }
-        public string Password
+        public string Password { get;set; }
+
+        //public string Password
+        //{
+        //    get { return _password; }
+        //    set
+        //    {
+        //        if (HasDigit(value) && HasUpper(value) )
+        //        {
+        //            _password = value;
+        //        }
+        //    }
+        //}
+
+
+        //public static bool HasDigit(string word)
+        //{
+        //    if (char.IsDigit(Convert.ToChar(word)))
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
+
+
+        //public static bool HasUpper(string word)
+        //{
+        //    if (char.IsUpper(Convert.ToChar(word)))
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
+
+        public static bool PasswordChecker(string password)
         {
-            get { return _password; }
-            set
+            bool hasDigit = false;
+            bool hasUpper = false;
+            if (string.IsNullOrWhiteSpace(password) == false)
             {
-                if (HasDigit(value) && HasUpper(value) )
+                foreach (var item in password)
                 {
-                    _password = value;
+                    if (char.IsDigit(item))
+                        hasDigit = true;
+
+
+                    if (char.IsUpper(item))
+                        hasUpper = true;
+
+                    if (hasDigit && hasUpper)
+                        return true;
                 }
             }
-        }
 
-
-        public static bool HasDigit(string word)
-        {
-            if (char.IsDigit(Convert.ToChar(word)))
-            {
-                return true;
-            }
             return false;
         }
 
-        public static bool HasUpper(string word)
-        {
-            if (char.IsUpper(Convert.ToChar(word)))
-            {
-                return true;
-            }
-            return false;
-        }
     }
 
 }

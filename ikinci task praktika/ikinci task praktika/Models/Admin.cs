@@ -15,5 +15,11 @@ namespace ikinci_task_praktika.Models
             Password = password;
             Section = section;
         }
+
+
+        public void ShowInfo()
+        {
+            Console.WriteLine($"Username: {Username} - Password: {Password} - SuperAdmin: {IsSuperAdmin} - Section: {Section}");
+        }
     }
 }
